@@ -1,13 +1,24 @@
 <script>
 	import About from "./components/About.svelte";
+	import Text  from "./components/Text.svelte";
+	import Person from "./components/Person.svelte";
 
 	export let name;
 	export let lastName;
+
+	const data = {
+		name: 'Moises',
+		lastName: 'Luna',
+		age: 31
+	}
 </script>
 
 <main>
 	<h1>Hello {name} {lastName}!</h1>
 	<About />
+	<Text anotherText={'Hola!'} />
+	<Text />
+	<Person {...data}/>
 </main>
 
 <style>
@@ -17,6 +28,10 @@
 	}
 	:global(:root) {
 		--theme-color: purple;
+	}
+	:global(body.dark-mode) {
+		background-color: #1d3040;
+		color: #bfc2c7;
 	}
 	main {
 		text-align: center;
